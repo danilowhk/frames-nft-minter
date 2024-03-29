@@ -9,10 +9,11 @@ const fdk = new PinataFDK({
 });
 
 export async function GET(req: NextRequest, res: NextResponse) {
+    console.log("get called");
     try {
         const frameMetadata = await fdk.getFrameMetadata({
             post_url: `${process.env.BASE_URL}/frame`,
-            buttons: [{ label: "Mint NFT", action: "post"}],
+            buttons: [{ label: "Mint 1 NFT", action: "post"}],
             aspect_ratio: "1:1",
             cid: "QmQub6Jhqq14mNzjG28AFYwmk5itvbwE54N7Jd3qZkEJGf",
         });
@@ -24,6 +25,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
 }
 
 export async function POST(req: NextRequest, res: NextResponse) { 
+    console.log("Post called");
     const body = await req.json();
     const fid = body.untrustedData.fid;
     const address = await getConnectedAddressForUser(fid);
