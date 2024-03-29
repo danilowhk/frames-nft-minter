@@ -28,14 +28,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
     console.log("Post called");
     const body = await req.json();
     const fid = body.untrustedData.fid;
-    // const address = await getConnectedAddressForUser(fid);
-    // const balance = await balanceOf(address);
-    // console.log(balance);
-    const balance = 0;
+    const address = await getConnectedAddressForUser(fid);
+    const balance = await balanceOf(address);
+    console.log(balance);
     if (typeof balance === "number" && balance !== null && balance < 1){
         try {
-            // const mint = await mintNft(address);
-            // console.log(mint);
+            const mint = await mintNft(address);
+            console.log(mint);
             const frameMetadata = await fdk.getFrameMetadata({
                 post_url: `${process.env.BASE_URL}/redirect`,
                 buttons: [{ label: "Learn How to Make This", action: "post_redirect"}],
