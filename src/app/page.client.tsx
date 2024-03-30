@@ -3,7 +3,7 @@ import React from 'react';
 import { mintNft, balanceOf } from '../../utils/mint';
 
 export default function Home() {
-  const userAddress = '0x8cFbD840FF40Ce16Ed3CDc19f0985CE5a8910208';
+  const userAddress = '0x8BF5932E7245865Ac9fb35c07907967A8B5375dB';
 
   const checkBalance = async () => {
     try {
