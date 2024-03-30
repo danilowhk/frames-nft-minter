@@ -16,16 +16,16 @@ export default function Home() {
     }
   };
 
-  const mintNftHandler = async () => {
-    try {
-      const transaction = await mintNft(userAddress);
-      console.log(transaction);
-      alert('NFT minted successfully!');
-    } catch (error) {
-      console.error('Error minting NFT:', error);
-      alert('Failed to mint NFT.');
-    }
-  };
+//   const mintNftHandler = async () => {
+//     try {
+//       const transaction = await mintNft(userAddress);
+//       console.log(transaction);
+//       alert('NFT minted successfully!');
+//     } catch (error) {
+//       console.error('Error minting NFT:', error);
+//       alert('Failed to mint NFT.');
+//     }
+//   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -35,12 +35,12 @@ export default function Home() {
       >
         Check Balance
       </button>
-      <button
+      {/* <button
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         onClick={mintNftHandler}
       >
         Mint NFT
-      </button>
+      </button> */}
     </main>
   );
 }

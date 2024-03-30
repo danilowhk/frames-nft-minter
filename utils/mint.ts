@@ -8,27 +8,25 @@ dotenv.config()
 
 console.log("logging env variables")
 
-// console.log(CONTRACT_ADDRESS as `0x`)
-// console.log(process.env.PRIVATE_KEY as `0x`)
-// console.log(process.env.ALCHEMY_URL)
+console.log(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS as `0x`)
+console.log(process.env.NEXT_PUBLIC_ALCHEMY_URL)
 
 
-const contractAddress = process.env.CONTRACT_ADDRESS as `0x`;
-
-const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x`);
+const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS as `0x`;
 
 export const publicClient = createPublicClient({
     chain: baseSepolia,
-    transport: http(process.env.ALCHEMY_URL),
+    transport: http(process.env.NEXT_PUBLIC_ALCHEMY_URL),
 });
 
-const walletClient = createWalletClient({
-    account,
-    chain: baseSepolia,
-    transport: http(process.env.ALCHEMY_URL),
-});
 
-export async function mintNft(toAddress: string) {
+
+export async function mintNft(toAddress: string, account: any) {
+    const walletClient = createWalletClient({
+        account,
+        chain: baseSepolia,
+        transport: http(process.env.NEXT_PUBLIC_ALCHEMY_URL),
+    });
     try {
         const { request }: any = await publicClient.simulateContract({
             account,

@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { PinataFDK } from "pinata-fdk";
 
 const fdk = new PinataFDK({
-  pinata_jwt: process.env.PINATA_JWT as string,
-  pinata_gateway: process.env.GATEWAY_URL as string,
+  pinata_jwt: process.env.NEXT_PUBLIC_PINATA_JWT as string,
+  pinata_gateway: process.env.NEXT_PUBLIC_GATEWAY_URL as string,
 });
 
 export async function POST(req: NextRequest, res: NextResponse) {
